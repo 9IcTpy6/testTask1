@@ -1,0 +1,10 @@
+.Header {
+    background-color: darkred;
+    height: 50px;
+}
+
+.text {
+    text-align: center;
+    color: azure;
+    font-size: 20px;
+}
