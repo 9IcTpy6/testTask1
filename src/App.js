@@ -4,9 +4,7 @@ import Main from "./containers/Main";
 
 function App() {
     return (
-        <Wrapper>
-            <Main/>
-        </Wrapper>
+        <Wrapper/>
     );
 }
 
