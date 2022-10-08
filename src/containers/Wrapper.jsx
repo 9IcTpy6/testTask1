@@ -20,7 +20,8 @@ async function makeRequestForCurrentCurrenciesRate() {
 
         let returnRate = {
             "USD": '', // default value of zero is not adequate,
-            "EUR": '' //  but for user 'undefined' either, so it would rather use ''.
+            "EUR": '', //  but for user 'undefined' either, so it would rather use ''.
+            "UAH": '1'
         }
 
         for (let currency of jsonResponse) {

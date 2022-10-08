@@ -35,25 +35,30 @@ export default function Main({curencies}) {
         }
     ];
 
-    let cache1 = 0;
-    let cache2 = 0;
 
     const [currency1, setCurrency1] = useState('EUR');
-    const [currency2, setCurrency2] = useState('EUR');
+    const [currency2, setCurrency2] = useState('USD');
+    const [cache, setCache] = useState(0)
+    const [cache2, setCache2] = useState(0)
 
     const handleChange1 = (event) => {
         setCurrency1(event.target.value);
+        console.log(currency1)
     };
     const handleChange2 = (event) => {
         setCurrency2(event.target.value);
+        console.log(currency2)
+
     };
 
     const handleInputMath1 = (e) => {
-
+        setCache2(e.target.value * currency1 / currency2)
+        setCache(0)
     }
 
     const handleInputMath2 = (e) => {
-
+        setCache(e.target.value * currency2 / currency1)
+        setCache2(0)
     }
 
     return (
@@ -63,6 +68,8 @@ export default function Main({curencies}) {
                     id="outlined-basic"
                     label="Enter first value"
                     variant="outlined"
+                    onChange={handleInputMath1}
+                    value={cache ? cache.toFixed(2) : null}
                 />
                 <TextField
                     id="outlined-select-currency1"
@@ -84,7 +91,8 @@ export default function Main({curencies}) {
                     id="outlined-basic"
                     label="Get here result"
                     variant="outlined"
-                    // onChange={handleInputMath1}
+                    value={cache2 ? cache2.toFixed(2) : null}
+                    onChange={handleInputMath2}
                 />
                 <TextField
                     id="outlined-select-currency2"
