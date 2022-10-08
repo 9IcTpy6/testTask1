@@ -1,7 +1,8 @@
 import './Main.scss'
-import {useState, useEffect} from 'react';
+import useState from 'react-usestateref';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import {FormControl, InputLabel, Select} from "@mui/material";
 
 export default function Main({curencies}) {
 
@@ -69,20 +70,22 @@ export default function Main({curencies}) {
                         onChange={handleInputCalculations1}
                         value={inputValue1 ? inputValue1.toFixed(2) : null}
                     />
-                    <TextField
-                        id="outlined-select-currency1"
-                        select
-                        label="Select"
-                        value={currency1}
-                        onChange={handleChange1}
-                        helperText="Please select your currency"
-                    >
-                        {currenciesSelect1.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField>
+
+                    <FormControl sx={{width: 130}}>
+                        <InputLabel id="demo-simple-select-label">Current</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={currency1}
+                            label="Currency"
+                            onChange={handleChange1}
+                        >
+                            {currenciesSelect1.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>))}
+                        </Select>
+                    </FormControl>
                 </div>
                 <div className='input-block2'>
                     <TextField
@@ -91,20 +94,22 @@ export default function Main({curencies}) {
                         value={inputValue2 ? inputValue2.toFixed(2) : null}
                         onChange={handleInputCalculations2}
                     />
-                    <TextField
-                        id="outlined-select-currency2"
-                        select
-                        label="Select"
-                        value={currency2}
-                        onChange={handleChange2}
-                        helperText="Please select your currency"
-                    >
-                        {currenciesSelect2.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField>
+                    <FormControl sx={{width: 130}}>
+                        <InputLabel id="demo-simple-select-label">Current</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={currency2}
+                            label="Currency"
+                            onChange={handleChange2}
+                        >
+                            {currenciesSelect2.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>))}
+                        </Select>
+                    </FormControl>
+
                 </div>
             </div>
         </div>
